@@ -22,9 +22,9 @@ var config = {
         filename: '[name].chunk.js'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.tsx']
-    },
-    debug: true,
+        extensions: ['.js', '.jsx', '.tsx']
+    }
+    ,
     devtool: 'source-map',
     //module: {
     //    loaders: [
@@ -36,7 +36,7 @@ var config = {
     //    ]
     //},
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' })
     ],
     externals: {
         'Config': JSON.stringify(process.env.ENV === 'production' ?
